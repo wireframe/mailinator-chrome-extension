@@ -5,10 +5,11 @@ Generate one time use email addresses and easily check your inbox.
 ## Features
 
 * popup to check your mailinator email inbox
+* one click generation of a random email address
 
 ## Installation
 
-* install plugin at ???
+* install plugin at https://chrome.google.com/extensions/detail/bcnflfkionidoobcineimfoollmbalbp
 
 ## Copyright
 
