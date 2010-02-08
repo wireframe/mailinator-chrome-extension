@@ -3,23 +3,30 @@
     <script type="text/javascript" src="jquery.min.js"></script>
     <script type="text/javascript" src="Math.uuid.js"></script>
     <script type="text/javascript">
-      $(function() {
-        function randomAccount() {
-          localStorage['account'] = Math.uuid(8, 16);
-        }
-
+      function randomAccount() {
+        localStorage['account'] = Math.uuid(8, 16);
+      }
+      function refresh() {
         if (localStorage['account'] == null) {
           randomAccount();
         }
         var account = localStorage['account'];
         $('#account').text(account + '@mailinator.com');
+        inbox.attr('src', 'http://www.mailinator.com/widget/mailin8r.jsp?w=280&h=230&b=' + account + '&f=true');
+      }
+      var inbox;
+      function bootstrap() {
+        inbox = $('<iframe id="inbox" marginwidth="0" marginheight="0" border="0" scrolling="no" frameborder="0" />').appendTo(document.body);
 
-        var inbox = $('<iframe id="inbox" marginwidth="0" marginheight="0" border="0" scrolling="no" frameborder="0" />').attr('src', 'http://www.mailinator.com/widget/mailin8r.jsp?w=280&h=230&b=' + account + '&f=true').appendTo(document.body);
-
-        $('#form').submit(function() {
+        $('#random_account').click(function() {
           randomAccount();
+          refresh();
+          return false;
         });
-      });
+
+        refresh();
+      }
+      $(bootstrap);
     </script>
     <style>
       body {
@@ -33,9 +40,7 @@
     </style>
   </head>
   <body>
-    <form id="form">
-      <span id="account"></span>
-      <button type="submit">Random Account</button>
-    </form>
+    <span id="account"></span>
+    <button id="random_account" type="submit">Random Account</button>
   </body>
 </html>
