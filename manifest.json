@@ -1,6 +1,6 @@
 {
   "name": "Mailinator",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Avoid spam by using a one-time use email address",
   "icons": { 
     "48": "icon-48.png",
